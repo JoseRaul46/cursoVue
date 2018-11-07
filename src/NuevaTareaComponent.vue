@@ -18,6 +18,7 @@
 
 
 <script>
+import {bus} from './main.js';
 export default ({
     data(){
         return{
@@ -33,11 +34,14 @@ export default ({
                     texto:texto,
                     terminada:false
                 })
-                this.$emit('incrementarContador', 1);
+                bus.actualizarContador(this.tareas.length);
             }
             this.nuevaTarea = '';
             
         }
+    }, 
+    created(){
+        bus.actualizarContador(this.tareas.length);
     }
 })
 </script>

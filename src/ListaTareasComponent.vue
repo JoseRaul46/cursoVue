@@ -19,6 +19,7 @@
 
 
 <script>
+import {bus} from './main.js';
 export default ({
     props:['tareas'],
     methods:{
@@ -26,9 +27,12 @@ export default ({
 			this.tareas[indice].terminada = !this.tareas[indice].terminada;
 		},
 		deleteElement(indice){
-			this.tareas.splice(indice,1);
-            this.$emit('restarContador', 1);
+            this.tareas.splice(indice,1);
+            bus.restarContador(this.tareas.length)
 		}
+    }, 
+    created(){
+        bus.restarContador(this.tareas.length)
     }
 })
 </script>

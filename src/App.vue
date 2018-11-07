@@ -1,10 +1,9 @@
 <template>
   <div id="app" class="container">
     <div class="jumbotron">
-      <titulo :titulo="titulo, subtitulo"></titulo>
-      <nueva-Tarea :tareas="tareas" v-on:incrementarContador="numTareas+=$event"></nueva-Tarea>
-      <lista-tareas :tareas="tareas" v-on:restarContador="numTareas-=$event"></lista-tareas>
-      {{numTareas}}
+      <titulo :titulo="titulo" :subtitulo="subtitulo" ></titulo>
+      <nueva-Tarea :tareas="tareas" :actualizarContador="actualizarContador"></nueva-Tarea>
+      <lista-tareas :tareas="tareas" :restarContador="restarContador"></lista-tareas>
     </div>
   </div>
 </template>
@@ -23,8 +22,7 @@ export default {
   data(){
     return{
       titulo:'lista',
-      subtitulo:'subtitulo prueba',
-      numTareas:3,
+      subtitulo:'Nº de Tareas',
       tareas:[
         {
           texto:'Angular',
@@ -39,6 +37,14 @@ export default {
           terminada:false
         },
       ]
+    }
+  },
+  methods:{
+    actualizarContador(){
+      this.numTareas++;
+    },
+    restarContador(){
+      this.numTareas--;
     }
   }
 }
