@@ -18,30 +18,35 @@
 
 
 <script>
-import {bus} from './main.js';
+import {bus} from './../main.js';
 export default ({
     data(){
         return{
             nuevaTarea:''
         }
     },
-    props:['tareas'],
+    props:['objeto'],
     methods:{
         agregarTarea(){
             var texto = this.nuevaTarea.trim();
             if(texto){
-                this.tareas.push({
+                this.objeto.tareas.push({
                     texto:texto,
                     terminada:false
                 })
-                bus.actualizarContador(this.tareas.length);
+                bus.actualizarContador(this.objeto.tareas.length);
+                
+                this.$http.post('tareas.json',{
+                texto:texto,
+                terminada:false
+            }).then(response => console.log(response));
             }
             this.nuevaTarea = '';
             
         }
     }, 
     created(){
-        bus.actualizarContador(this.tareas.length);
+        bus.actualizarContador(this.objeto.tareas.length);
     }
 })
 </script>

@@ -1,20 +1,20 @@
 <template>
     <div>
-        <h2>{{titulo}}</h2>
-        <h3>{{subtitulo}}: {{numTareas}}</h3>
+        <h2>{{objeto.titulo}}</h2>
+        <h3>{{objeto.subtitulo}}:{{objeto.tareas.length}}</h3>
     </div>
 </template>
 
 
 
 <script>
-import {bus} from './main.js';
+import {bus} from './../main.js';
 
 export default ({
-    props:['titulo', 'subtitulo'] ,
+    props:['objeto'] ,
     data(){
         return {
-            numTareas:0
+            numTareas:this.objeto.tareas.length
         }
     },
     created(){
@@ -24,6 +24,9 @@ export default ({
         bus.$on('restarContador', (numTareas)=>{
             this.numTareas = numTareas;
         })
+       bus.getContador(this.objeto.tareas.length);
     }
+    
 })
+
 </script>
