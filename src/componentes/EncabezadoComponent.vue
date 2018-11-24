@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
         <ul class="nav nav-pills pull-right">
-            <router-link tag="li" exact  @click="closeNav()" class="nav-item nav-link" active-class="active"  to="/"><span @click="closeNav()">Home</span></router-link>
+            <router-link tag="li" exact class="nav-item nav-link" active-class="active"  to="/"><span @click="closeNav()">Home</span></router-link>
             <router-link tag="li" exact class="nav-item nav-link" active-class="active"    to="/usuarios"><span @click="closeNav()">Usuarios</span></router-link>
             <router-link tag="li" exact class="nav-item nav-link" active-class="active"    to="/tareas"><span @click="closeNav()">Tareas</span></router-link>
         </ul>
@@ -22,10 +22,6 @@ export default {
         }
     }
 }
-
-$('.nav li').on('click', function(){
-    $('.navbar-toggler').click(); //bootstrap 4.x
-});
 </script>
 
 <style scoped>

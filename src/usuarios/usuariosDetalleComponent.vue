@@ -3,8 +3,9 @@
         <h2>Información del Usuario</h2>
         <div>
             <p><strong>Nombre : </strong> {{nombre}}</p>
-            <p><strong>Nombre : </strong> {{email}}</p>
+            <p><strong>Email : </strong> {{email}}</p>
         </div>
+        <router-link tag="button" to="/usuarios" class="btn btn-primary">Volver</router-link>
     </div>
 </template>
 

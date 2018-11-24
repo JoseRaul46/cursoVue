@@ -3,7 +3,10 @@
         <titulo :objeto="objeto"></titulo>
         <nueva-tarea :objeto="objeto"></nueva-tarea>
         <lista-tareas :objeto="objeto"></lista-tareas>
+        </br>
+        <button class="btn btn-primary" @click="volver"><i class="fa fa-chevron-left"></i> Inicio</button>
     </div>
+    
 </template>
 
 <script>
@@ -38,6 +41,9 @@ export default {
     },
     getContado(){
       this.numTareas;
+    },
+    volver(){
+      this.$router.push('/');
     }
   }, created(){
     this.$http.get('tareas.json')

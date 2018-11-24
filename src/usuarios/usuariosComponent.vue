@@ -3,7 +3,7 @@
         <p>Lista de Usuarios</p>{{id}}
         <ul class="list-group">
             <router-link tag="li" :to="{name:'detalleUsuario', params:{id: usuario.id}}" class="list-group-item route" v-for="(usuario,key) in usuarios" >
-                {{usuario.name}}
+                {{key}}-{{usuario.name}}
             </router-link>
         </ul>
         <router-view></router-view>
